@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AXA 2030 · Un copilote IA pour le réseau commercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+<style>
+/* Design System : .claude/skills/slides-design/ds.html, copie locale dans ../ds.html */
+:root{
+  --encre:#0a0a0a; --fond:#f5f5f5; --carte:#fff; --filet:#e4e4e2;
+  --bleu:#1d9bf0; --vert:#008000; --rouge:#ff0000;
+  --sourdine:rgba(10,10,10,.55); --tenu:rgba(10,10,10,.38);
+  --fs-titre:clamp(1.9rem,3.9vw,3.3rem);
+  --fs-chiffre:clamp(22px,2.34vw,2.1rem);
+  --fs-md:clamp(14px,1.09vw,1.05rem);
+  --fs-sm:clamp(11px,.94vw,.84rem);
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;
+  --r:20px; --rail:6vh;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);font-size:var(--fs-md);font-weight:400;line-height:1.5;color:var(--encre);background:var(--fond);scroll-snap-type:y mandatory;overflow-x:hidden}
+strong{font-weight:600}
+/* rail : capsule en verre liquide */
+.rail{position:fixed;left:.9vh;top:1.4vh;bottom:1.4vh;width:var(--rail);border-radius:999px;z-index:50;display:flex;flex-direction:column;align-items:center;padding:0 0 1.8vh;
+  background:color-mix(in srgb,#fff 28%,transparent);-webkit-backdrop-filter:blur(1.5px) saturate(1.15);backdrop-filter:blur(1.5px) saturate(1.15);
+  box-shadow:inset 1px 1px 1px rgba(255,255,255,.6),0 8px 30px rgba(10,10,10,.12);border:1px solid rgba(10,10,10,.08)}
+.rail .tete{flex:none;padding:1.6vh 0 .8vh}.rail .tete img{width:3.8vh;height:3.8vh;display:block;border-radius:1vh;object-fit:contain}
+.rail .liens{flex:1 1 auto;min-height:0;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:.8vh 0}
+.rail .liens a{width:3.6vh;height:3.6vh;display:grid;place-items:center;border-radius:1.1vh;background:rgba(255,255,255,.62);border:1px solid var(--filet);font-size:var(--fs-sm);font-weight:600;color:var(--sourdine);text-decoration:none;transition:.18s}
+.rail .liens a:hover{background:#fff;color:var(--encre)}
+.rail .liens a.on{color:#fff;background:var(--encre);border-color:var(--encre)}
+.rail .bar{flex:none;width:2vh;height:12vh;border-radius:999px;background:rgba(10,10,10,.14);overflow:hidden}
+.rail .bar i{display:block;width:100%;background:var(--bleu);height:0;border-radius:999px}
+section{height:100vh;height:100svh;scroll-snap-align:start;scroll-snap-stop:always;padding:11vh 2.6vw 7vh calc(var(--rail) + .9vh + 2.6vw);display:flex;flex-direction:column;border-top:1px solid var(--filet);position:relative;overflow:hidden}
+section:first-of-type{border-top:0}
+.num{position:absolute;bottom:2.6vh;right:2.6vw;font-size:var(--fs-sm);font-weight:600;letter-spacing:.16em;color:var(--tenu);z-index:3}
+.pied{position:absolute;bottom:2.6vh;left:calc(var(--rail) + .9vh + 2.6vw);right:10vw;font-size:var(--fs-sm);font-weight:300;color:var(--tenu);z-index:3;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+h1,h2{font-size:var(--fs-titre);font-weight:600;letter-spacing:-.035em;line-height:1.04;margin:0 0 2.2vh;flex:none}
+/* logos : sujet en haut à gauche, IUT en haut à droite, plus petit */
+.lg-s{position:absolute;top:2.6vh;left:calc(var(--rail) + .9vh + 2.6vw);height:4.8vh;width:auto;z-index:6;display:block}
+.lg-i{position:absolute;top:2.9vh;right:2.6vw;height:3vh;width:auto;z-index:6;display:block}
+.tc>h2{text-align:center}.td>h2{text-align:right}
+.lab{font-size:var(--fs-sm);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--bleu)}
+.chip{display:inline-block;background:#fff;border:1px solid var(--encre);border-radius:999px;padding:.35em 1em;font-size:var(--fs-sm);font-weight:600;color:var(--encre)}
+.photo{position:relative;border-radius:var(--r);overflow:hidden;background:#d8d8d6;min-height:0}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo .chip{position:absolute;left:1.2vw;top:1.6vh;z-index:2}
+.photo .cap{position:absolute;left:0;right:0;bottom:0;padding:5vh 1.4vw 1.8vh;color:#fff;font-weight:500;background:linear-gradient(transparent,rgba(10,10,10,.78));font-size:var(--fs-md)}
+.bloc{border-radius:var(--r);padding:2vh 1.6vw;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:.8vh}
+.bloc b{font-size:var(--fs-chiffre);font-weight:500;line-height:1.05;letter-spacing:-.03em}
+.bloc.n{background:var(--encre)}.bloc.b{background:var(--bleu)}.bloc.v{background:var(--vert)}.bloc.r{background:var(--rouge)}
+.bloc span{color:rgba(255,255,255,.9);line-height:1.3}
+.carte{background:#fff;border:1px solid var(--filet);border-radius:var(--r);padding:2vh 1.5vw;display:flex;flex-direction:column;justify-content:center;gap:.9vh;min-height:0}
+.carte b{font-weight:600;font-size:clamp(15px,1.5vw,1.5rem);line-height:1.2;letter-spacing:-.02em}
+.carte p{margin:0}
+/* S1 couverture */
+#s1{color:#fff;align-items:center;justify-content:center;text-align:center;background:#0a0a0a;padding-left:calc(var(--rail) + 2.6vw)}
+#s1::before{content:"";position:absolute;inset:0;background:url(assets/img/couverture.jpg) center 40%/cover no-repeat;z-index:0}
+#s1::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(10,10,10,.6),rgba(10,10,10,.74));z-index:1}
+#s1>*{position:relative;z-index:2}#s1 .signature,#s1 .num,#s1 .lg-s,#s1 .lg-i{position:absolute}
+#s1 .lg-s,#s1 .lg-i{background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-radius:8px;padding:.5vh .8vh}
+#s1 .lg-i{height:4vh}#s1 .lg-s{height:5.6vh}
+#s1 h1{font-size:clamp(2.6rem,6vw,5.2rem);margin:0 0 .35em;max-width:70vw}
+#s1 .court{font-size:var(--fs-chiffre);font-weight:400;max-width:28em;margin:0;color:rgba(255,255,255,.88);line-height:1.3}
+#s1 .signature{left:0;right:0;bottom:7vh;display:flex;flex-direction:column;gap:.5vh;align-items:center;padding-left:var(--rail)}
+#s1 .ress{font-size:var(--fs-sm);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--bleu)}
+#s1 .auteurs{font-size:var(--fs-sm);font-weight:300;color:rgba(255,255,255,.78)}
+#s1 .num{color:rgba(255,255,255,.6)}
+/* S2 */
+.s2g{flex:1;min-height:0;display:grid;grid-template-columns:42% 1fr;gap:2.2vw}
+.s2d{display:grid;grid-template-rows:1fr 1.1fr;gap:2.2vh;min-height:0}
+.s2d .tri{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1.2vw;min-height:0}
+.s2d .tri .bloc b{font-size:clamp(1.6rem,2.8vw,2.6rem)}
+.fil{display:flex;flex-direction:column;gap:1vh}.fil .l{background:var(--fond);border-radius:16px;padding:1.1vh 1.2vw;display:grid;grid-template-columns:10em 1fr;gap:1vw;align-items:center}
+.fil .l b{font-size:var(--fs-md);font-weight:600;letter-spacing:0}
+/* S3 */
+.s3g{flex:1;min-height:0;display:grid;grid-template-columns:34% 1fr;gap:2.2vw}
+.s3g .reco{background:var(--encre);color:#fff;border-radius:var(--r);padding:0;display:flex;flex-direction:column;overflow:hidden;min-height:0}
+.s3g .reco .photo{flex:1;border-radius:0}
+.s3g .reco .tx{padding:2.2vh 1.6vw 2.6vh;display:flex;flex-direction:column;gap:1vh}
+.s3g .reco b{font-size:var(--fs-chiffre);font-weight:500;line-height:1.1;letter-spacing:-.03em}
+.sw{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1.6vh 1.2vw;min-height:0}
+.sw .carte{border-width:2px}.sw .f{border-color:var(--vert)}.sw .w{border-color:var(--rouge)}.sw .o{border-color:var(--bleu)}.sw .t{border-color:var(--encre)}
+.sw .f .lab{color:var(--vert)}.sw .w .lab{color:var(--rouge)}.sw .t .lab{color:var(--encre)}
+/* S4 */
+.cv{flex:1;min-height:0;display:grid;gap:1vh .9vw;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr 1fr .72fr}
+.cv .carte{padding:1.2vh 1vw;gap:.4vh;justify-content:flex-start;overflow:hidden}
+.cv .carte p{font-size:var(--fs-md);line-height:1.3}
+.cv .p{grid-column:1;grid-row:1/3}.cv .a{grid-column:2;grid-row:1}.cv .r{grid-column:2;grid-row:2}.cv .v{grid-column:3;grid-row:1/3;background:var(--encre);color:#fff;border-color:var(--encre)}
+.cv .rc{grid-column:4;grid-row:1}.cv .c{grid-column:4;grid-row:2}.cv .s{grid-column:5;grid-row:1/3}.cv .co{grid-column:1/3;grid-row:3}.cv .re{grid-column:3/6;grid-row:3}
+.cv .v .lab{color:var(--bleu)}.cv .v p{color:rgba(255,255,255,.92)}
+.cv .v .photo{flex:1;margin-top:1vh;min-height:8vh}
+/* S5 */
+.s5g{flex:1;min-height:0;display:grid;grid-template-columns:38% 1fr;gap:2.2vw}
+.s5d{display:grid;grid-template-rows:1fr 1fr;gap:2.2vh;min-height:0}
+.s5d .deux{display:grid;grid-template-columns:1fr 1fr;gap:1.2vw;min-height:0}
+.risque{background:#fff;border:1px solid var(--filet);border-top:6px solid var(--rouge);border-radius:var(--r);padding:2vh 1.5vw;display:flex;flex-direction:column;justify-content:center;gap:.8vh;min-height:0}
+.risque .lab{color:var(--rouge)}.risque b{font-size:clamp(15px,1.5vw,1.5rem);font-weight:600;line-height:1.2;letter-spacing:-.02em}.risque p{margin:0}.garde{color:var(--vert);font-weight:600}
+/* S6 */
+.s6g{flex:1;min-height:0;display:flex;flex-direction:column;gap:2.4vh}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2vw;flex:1;min-height:0}
+.kp .k{display:flex;flex-direction:column;justify-content:center;gap:1vh;border-left:4px solid var(--bleu);padding-left:1.4vw}
+.kp .k i{font-style:normal;font-size:clamp(3.4rem,7vw,6.4rem);font-weight:500;letter-spacing:-.05em;line-height:.95;color:var(--bleu)}
+.kp .k b{font-size:clamp(15px,1.5vw,1.5rem);font-weight:600;line-height:1.2}.kp .k span{color:var(--sourdine)}
+.val3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2vw;flex:1;min-height:0}
+/* S7 */
+#s7{padding:0;justify-content:center;align-items:center;text-align:center;background:var(--fond)}
+#s7>h2{font-size:clamp(3rem,8vw,7.6rem);margin:0;letter-spacing:-.05em;position:relative;z-index:2;line-height:1}
+#s7>h2 small{display:block;font-size:.4em;font-weight:500;letter-spacing:-.02em;margin-top:1.4vh;color:var(--sourdine)}
+/* notes orateur */
+.notes{display:none;position:fixed;left:calc(var(--rail) + 1vh);right:0;bottom:0;background:var(--encre);color:#fff;padding:2vh 2.6vw 2.4vh;font-size:clamp(14px,1.25vw,1.2rem);line-height:1.5;max-height:46vh;overflow:auto;z-index:60;outline:0;white-space:pre-wrap}
+body.notesvues section.ici .notes{display:block}
+.notes:focus{box-shadow:inset 0 3px 0 var(--bleu)}
+.notes::after{content:attr(data-aide);display:block;margin-top:.7em;font-size:11px;color:rgba(255,255,255,.45);user-select:none}
+.toast{position:fixed;left:50%;bottom:3vh;transform:translateX(-50%);background:var(--bleu);color:#fff;border-radius:999px;padding:.5em 1.2em;font-size:13px;font-weight:600;z-index:95;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.on{opacity:1}
+@page{size:1280px 720px;margin:0}
+@media print{.notes,.rail,.toast{display:none!important}section{height:720px;break-after:page}}
+.rideau,.iris{display:none}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes a-titre{from{opacity:0;transform:translateY(-5vh)}}
+  @keyframes a-gauche{from{opacity:0;transform:translateX(-9vw)}}
+  @keyframes a-droite{from{opacity:0;transform:translateX(9vw)}}
+  @keyframes a-monte{from{opacity:0;transform:translateY(7vh)}}
+  @keyframes a-centre{from{opacity:0;transform:scale(.92)}}
+  @keyframes a-pop{0%{opacity:0;transform:scale(.4)}70%{opacity:1;transform:scale(1.08)}100%{transform:scale(1)}}
+  @keyframes a-rg{to{transform:translateX(-101%)}}
+  @keyframes a-rd{to{transform:translateX(101%)}}
+  @keyframes a-couv{from{opacity:0;transform:translateY(5vh)}}
+  @keyframes a-couvbg{from{transform:scale(1.18)}}
+  @keyframes a-iris{from{width:260vmax;height:260vmax;margin:-130vmax 0 0 -130vmax}}
+  section.ici h2{animation:a-titre .8s ease-out backwards}
+  #s1.ici .rideau{display:block;position:absolute;top:0;bottom:0;width:51%;background:var(--encre);z-index:6;pointer-events:none}
+  #s1.ici .rideau.g{left:0;animation:a-rg 1.6s cubic-bezier(.77,0,.18,1) forwards}
+  #s1.ici .rideau.d{right:0;animation:a-rd 1.6s cubic-bezier(.77,0,.18,1) forwards}
+  #s1.ici h1,#s1.ici .court,#s1.ici .signature{animation:a-couv 1.6s cubic-bezier(.77,0,.18,1) backwards}
+  #s1.ici::before{animation:a-couvbg 1.6s cubic-bezier(.77,0,.18,1) backwards}
+  #s2.ici .s2g .photo{animation:a-gauche .9s ease-out backwards}
+  #s2.ici .s2d .tri .bloc{animation:a-droite .9s ease-out backwards}#s2.ici .s2d .tri .bloc:nth-child(2){animation-delay:.12s}#s2.ici .s2d .tri .bloc:nth-child(3){animation-delay:.24s}
+  #s2.ici .fil .l{animation:a-monte .8s ease-out backwards}#s2.ici .fil .l:nth-child(2){animation-delay:.15s}#s2.ici .fil .l:nth-child(3){animation-delay:.3s}
+  #s3.ici .sw .carte:nth-child(odd){animation:a-gauche .9s ease-out backwards}#s3.ici .sw .carte:nth-child(even){animation:a-droite .9s ease-out backwards}
+  #s3.ici .s3g .reco{animation:a-monte .9s ease-out backwards}
+  #s4.ici .cv .carte{animation:a-centre .8s ease-out backwards}#s4.ici .cv .v{animation:a-pop .9s ease-out backwards}
+  #s5.ici .s5g .photo{animation:a-gauche .9s ease-out backwards}#s5.ici .s5d>*{animation:a-droite .9s ease-out backwards}
+  #s6.ici .kp .k{animation:a-pop .8s ease-out backwards}#s6.ici .kp .k:nth-child(2){animation-delay:.15s}#s6.ici .kp .k:nth-child(3){animation-delay:.3s}#s6.ici .val3 .bloc{animation:a-monte .9s .3s ease-out backwards}
+  #s7.ici .iris{display:block;position:absolute;left:50%;top:50%;width:0;height:0;background:var(--encre);border-radius:50%;z-index:1;animation:a-iris 1.8s cubic-bezier(.6,0,.2,1) reverse forwards}
+}
+</style>
+<style>
+.gros{flex:1;min-height:0;display:grid;place-items:center;border-radius:var(--r);background:var(--bleu);color:#fff}
+.gros .ic{width:7vw;height:7vw;margin:0;stroke-width:2.6}
+.s3g .reco .gros{border-radius:0;flex:1}
+.cv .v .gros{margin-top:1vh;min-height:8vh;background:var(--bleu)}.cv .v .gros .ic{width:4vw;height:4vw}
+.s5g .gros.n{background:var(--encre);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:1.4vh;padding:0 2vw}
+.s5g .gros.n b{font-size:var(--fs-chiffre);font-weight:500;line-height:1.1;letter-spacing:-.03em}
+.s5g .duo{display:flex;gap:1.4vw}.s5g .duo .ic{width:5vw;height:5vw;color:var(--bleu);margin:0}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-main" viewBox="0 0 64 64"><path d="M6 30l10-10 12 4 10-6 20 20-8 8-6-4-6 6-12-4-10-8z"/><path d="M26 44l6 6M34 36l8 8"/></symbol>
+<symbol id="i-engrenage" viewBox="0 0 64 64"><circle cx="32" cy="32" r="9"/><path d="M32 6v8M32 50v8M6 32h8M50 32h8M13 13l6 6M45 45l6 6M13 51l6-6M45 19l6-6"/></symbol>
+<symbol id="i-base" viewBox="0 0 64 64"><ellipse cx="32" cy="14" rx="20" ry="7"/><path d="M12 14v36c0 4 9 7 20 7s20-3 20-7V14M12 32c0 4 9 7 20 7s20-3 20-7"/></symbol>
+<symbol id="i-etoile" viewBox="0 0 64 64"><path d="M32 6l7 17 18 2-14 12 5 18-16-10-16 10 5-18L7 25l18-2z"/></symbol>
+<symbol id="i-coeur" viewBox="0 0 64 64"><path d="M32 56S8 40 8 24c0-8 6-14 13-14 5 0 9 3 11 7 2-4 6-7 11-7 7 0 13 6 13 14 0 16-24 32-24 32z"/></symbol>
+<symbol id="i-mobile" viewBox="0 0 64 64"><rect x="18" y="5" width="28" height="54" rx="6"/><path d="M28 51h8"/></symbol>
+<symbol id="i-groupe" viewBox="0 0 64 64"><circle cx="22" cy="22" r="9"/><circle cx="44" cy="25" r="7"/><path d="M5 54c0-11 8-18 17-18s17 7 17 18M40 38c10 0 19 6 19 16"/></symbol>
+<symbol id="i-pieces" viewBox="0 0 64 64"><circle cx="24" cy="38" r="17"/><circle cx="42" cy="24" r="17"/></symbol>
+<symbol id="i-euro" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25"/><path d="M43 23c-3-4-8-5-12-3-5 2-7 8-5 13 2 5 8 8 13 6 2-1 3-2 4-3M20 29h19M20 36h19"/></symbol>
+<symbol id="i-bouclier" viewBox="0 0 64 64"><path d="M32 5l22 8v17c0 14-9 25-22 29C19 55 10 44 10 30V13z"/><path d="M22 32l8 8 14-16"/></symbol>
+<symbol id="i-dossier" viewBox="0 0 64 64"><path d="M14 4h26l12 12v44H14z"/><path d="M40 4v12h12M22 28h20M22 36h20M22 44h12"/></symbol>
+<symbol id="i-ia" viewBox="0 0 64 64"><path d="M26 8l5 15 15 5-15 5-5 15-5-15-15-5 15-5z"/><path d="M48 36l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></symbol>
+<symbol id="i-alerte" viewBox="0 0 64 64"><path d="M32 7L60 56H4z"/><path d="M32 24v16M32 47v2"/></symbol>
+<symbol id="i-cadenas" viewBox="0 0 64 64"><rect x="12" y="28" width="40" height="30" rx="6"/><path d="M20 28v-8a12 12 0 0 1 24 0v8M32 38v10"/></symbol>
+<symbol id="i-stylo" viewBox="0 0 64 64"><path d="M8 56l4-14L42 12l10 10-30 30z"/><path d="M36 18l10 10"/></symbol>
+<symbol id="i-immeuble" viewBox="0 0 64 64"><rect x="14" y="8" width="36" height="48" rx="3"/><path d="M22 18h6M36 18h6M22 28h6M36 28h6M22 38h6M36 38h6M28 56V46h8v10"/></symbol>
+<symbol id="i-personne" viewBox="0 0 64 64"><circle cx="32" cy="20" r="10"/><path d="M12 56c0-12 9-20 20-20s20 8 20 20"/></symbol>
+<symbol id="i-conseiller" viewBox="0 0 64 64"><circle cx="32" cy="18" r="9"/><path d="M12 56c0-11 9-19 20-19s20 8 20 19M32 37l-4 12 4 7 4-7z"/></symbol>
+<symbol id="i-horloge" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25"/><path d="M32 16v16l11 7"/></symbol>
+<symbol id="i-cible" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25"/><circle cx="32" cy="32" r="14"/><circle cx="32" cy="32" r="3"/></symbol>
+<symbol id="i-sourire" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25"/><path d="M22 38c3 6 17 6 20 0M23 25v3M41 25v3"/></symbol>
+<symbol id="i-graph" viewBox="0 0 64 64"><path d="M8 8v48h48"/><path d="M16 44l12-14 10 8 16-20"/></symbol>
+<symbol id="i-fusee" viewBox="0 0 64 64"><path d="M32 6c10 6 14 18 12 34H20C18 24 22 12 32 6z"/><circle cx="32" cy="26" r="5"/><path d="M20 40l-8 10 12-2M44 40l8 10-12-2M28 52l4 8 4-8"/></symbol>
+</defs></svg>
+<style>.ic{width:1.35em;height:1.35em;stroke:currentColor;fill:none;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.28em;margin-right:.45em;flex:none}
+.ic.g{width:2.6vw;height:2.6vw;margin:0}
+.bloc .ic.g{width:3vw;height:3vw;color:#fff;margin-bottom:.4vh}
+.kp .k .ic.g{width:5.4vw;height:5.4vw;color:var(--bleu);margin-bottom:1vh}
+.risque{border-top:1px solid var(--filet)!important;border-radius:var(--r)!important}
+.risque .lab{color:var(--rouge);display:flex;align-items:center}
+.risque .lab .ic{color:var(--rouge)}
+.lab{display:flex;align-items:center}
+.lab .ic{width:2em;height:2em;margin-right:.6em}
+.sw .f .lab .ic{color:var(--vert)}.sw .w .lab .ic{color:var(--rouge)}.sw .o .lab .ic{color:var(--bleu)}.sw .t .lab .ic{color:var(--encre)}
+.cv .v .lab .ic{color:var(--bleu)}
+.rail .tete img{border-radius:0!important;width:3.8vh;height:3.8vh;object-fit:contain}
+.lg-s{border-radius:0}
+</style>
+<nav class="rail" aria-label="Sommaire">
+  <div class="tete"><a href="#s1"><img src="assets/img/logo-axa.svg" alt="AXA"></a></div>
+  <div class="liens"><a href="#s1">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a><a href="#s5">5</a><a href="#s6">6</a><a href="#s7">7</a></div>
+  <div class="bar"><i></i></div>
+</nav>
+
+<!-- S1 couverture : image plein écran, logo AXA à gauche, logo IUT à droite -->
+<section id="s1">
+  <div class="rideau g"></div><div class="rideau d"></div>
+  <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA" style="left:calc(var(--rail) + 2.6vw)">
+  <img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
+  <h1>AXA 2030 : un copilote IA pour le réseau commercial</h1>
+  <p class="court">Préparer les rendez-vous, cerner les besoins, mieux accompagner les clients</p>
+  <div class="signature">
+    <div class="ress">R5.MDEE.14 Business model 2 · Atelier 1, équipe 2 · M. Ryckebusch</div>
+    <div class="auteurs">Romane Da Silva, Yoan Bailleul &amp; Sofian Chtioui · BUT3 MDEE · IUT de Roubaix · 17/11/2026</div>
+  </div>
+  <div class="num">1 / 7</div>
+  <div class="notes">Bonjour à tous. Notre équipe avait pour mission le réseau commercial d'AXA : comment l'intelligence artificielle peut aider un conseiller avant et après un rendez-vous. Notre idée tient en une phrase : un copilote IA qui prépare le rendez-vous, mais qui laisse la décision au conseiller. Nous allons d'abord situer AXA, puis faire le SWOT, le canevas, un cas d'usage avec ses risques et ses indicateurs, et finir sur la valeur nouvelle.</div>
+</section>
+
+<!-- S2 AXA en bref (réf. : photo-carte à gauche + blocs pleins à droite) -->
+<section id="s2">
+  <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA"><img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
+  <h2>AXA en bref</h2>
+  <div class="s2g">
+    <div class="photo"><img src="assets/img/agence.jpg" alt="Agence AXA"><span class="chip">AXA France</span><div class="cap">8 millions de clients en France</div></div>
+    <div class="s2d">
+      <div class="tri">
+        <div class="bloc n"><svg class="ic g"><use href="#i-graph"/></svg><b>115,5 Md€</b><span>de chiffre d'affaires du groupe en 2025</span></div>
+        <div class="bloc b"><svg class="ic g"><use href="#i-euro"/></svg><b>9,79 Md€</b><span>de résultat net, en hausse de 26 %</span></div>
+        <div class="bloc v"><svg class="ic g"><use href="#i-groupe"/></svg><b>31 Md€</b><span>de chiffre d'affaires pour AXA France</span></div>
+      </div>
+      <div class="carte"><span class="lab"><svg class="ic"><use href="#i-groupe"/></svg>Plusieurs réseaux de distribution</span>
+        <div class="fil">
+          <div class="l"><b>Indépendants</b><span>les agents généraux, qui vendent en leur nom</span></div>
+          <div class="l"><b>Salariés</b><span>les conseillers commerciaux de l'entreprise : notre sujet</span></div>
+          <div class="l"><b>En ligne</b><span>Direct Assurance, plus de 2 millions de contrats</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="pied">Sources : AXA, résultats annuels 2025 ; AXA France, communiqué du 02/03/2026 ; ABC Bourse, 26/02/2026, (consultés le 17/11/2026)</p>
+  <div class="num">2 / 7</div>
+  <div class="notes">AXA en quelques chiffres, rapidement, parce que le groupe 1 l'a déjà fait. En 2025, le groupe a réalisé 115,5 milliards d'euros de chiffre d'affaires et un résultat net de 9,8 milliards. En France, AXA France pèse 31 milliards et couvre 8 millions de clients. L'important, comme vous l'avez dit, c'est qu'AXA n'est pas une entreprise simple : il y a plusieurs réseaux. Des indépendants, les agents généraux. Des salariés, les conseillers commerciaux, et c'est notre sujet. Et une filiale en ligne, Direct Assurance, avec plus de 2 millions de contrats. Notre problématique : comment aider ces commerciaux avant et après chaque rendez-vous.</div>
+
+</section>
+
+<!-- S3 SWOT (réf. : grande carte noire + grille) -->
+<section id="s3" class="td">
+  <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA"><img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
+  <h2>Mini-SWOT : l'IA chez AXA</h2>
+  <div class="s3g">
+    <div class="reco"><div class="photo"><img src="assets/img/equipe.jpg" alt="Équipe au travail avec des ordinateurs"></div>
+      <div class="tx"><span class="lab"><svg class="ic"><use href="#i-fusee"/></svg>Préconisations</span><b>1. Un pilote dans une région<br>2. Bâti sur AXA Secure GPT<br>3. Le conseiller décide toujours</b></div></div>
+    <div class="sw">
+      <div class="carte f"><span class="lab"><svg class="ic"><use href="#i-bouclier"/></svg>Force</span><b>Un outil d'IA interne et sécurisé, 8 millions de clients</b><p>AXA Secure GPT existe déjà (2023) et le réseau génère beaucoup de données utiles au conseil.</p></div>
+      <div class="carte w"><span class="lab"><svg class="ic"><use href="#i-dossier"/></svg>Faiblesse</span><b>Des réseaux très différents, des outils dispersés</b><p>Indépendants et salariés n'ont pas les mêmes usages : un copilote unique est difficile à déployer (hypothèse de l'équipe).</p></div>
+      <div class="carte o"><span class="lab"><svg class="ic"><use href="#i-ia"/></svg>Opportunité</span><b>L'IA libère du temps commercial</b><p>Préparer le rendez-vous et rédiger le compte rendu : le conseiller passe plus de temps avec le client.</p></div>
+      <div class="carte t"><span class="lab"><svg class="ic"><use href="#i-alerte"/></svg>Menace</span><b>Données sensibles, RGPD et règlement européen sur l'IA</b><p>Une erreur ou une fuite détruirait la confiance, sur laquelle repose l'assurance.</p></div>
+    </div>
+  </div>
+  <p class="pied">Sources : AXA France, résultats 2025 ; AXA, AXA Secure GPT (juillet 2023), (consultés le 17/11/2026). Faiblesse : hypothèse de l'équipe.</p>
+  <div class="num">3 / 7</div>
+  <div class="notes">Notre mini-SWOT. La force : un réseau étendu et 8 millions de clients en France. La faiblesse, qui est une hypothèse de notre équipe : un conseiller perd du temps à retrouver le dossier du client dans plusieurs outils avant chaque rendez-vous. L'opportunité : l'IA générative est aujourd'hui mûre, et AXA a déjà sa propre plateforme sécurisée, AXA Secure GPT, lancée en 2023 sur la technologie d'OpenAI hébergée chez Microsoft. La menace : les données de santé et de patrimoine sont très sensibles, avec le RGPD en toile de fond. Comme vous l'avez rappelé, un SWOT sert à préconiser : nos préconisations : un, lancer le copilote en pilote dans une seule région avant de le généraliser, exactement comme pour BlaBlaCar Flex ; deux, le bâtir sur l'outil interne qu'AXA a déjà, AXA Secure GPT ; trois, laisser toujours la décision au conseiller.</div>
+</section>
+
+<!-- S4 canevas -->
+<section id="s4" class="tc">
+  <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA"><img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
+  <h2>Canevas : AXA Copilote Conseil</h2>
+  <div class="cv">
+    <div class="carte p"><span class="lab"><svg class="ic"><use href="#i-main"/></svg>Partenaires clés</span><p>Microsoft (Azure OpenAI)</p><p>Éditeurs d'outils de relation client</p><p>Agents généraux et courtiers</p><p>CNIL et ACPR (conformité)</p></div>
+    <div class="carte a"><span class="lab"><svg class="ic"><use href="#i-engrenage"/></svg>Activités clés</span><p>Résumer le dossier client, repérer les lacunes de couverture, proposer les bonnes questions, rédiger le compte rendu</p></div>
+    <div class="carte r"><span class="lab"><svg class="ic"><use href="#i-base"/></svg>Ressources clés</span><p>Données clients avec consentement, modèle d'IA sécurisé, équipe données et conformité</p></div>
+    <div class="carte v"><span class="lab"><svg class="ic"><use href="#i-etoile"/></svg>Proposition de valeur</span><p>Un rendez-vous préparé en quelques minutes et un conseil mieux ajusté aux besoins réels du client.</p><p>Le conseiller garde la décision.</p><div class="gros"><svg class="ic"><use href="#i-etoile"/></svg></div></div>
+    <div class="carte rc"><span class="lab"><svg class="ic"><use href="#i-coeur"/></svg>Relation client</span><p>Conseil humain augmenté, suivi automatique après le rendez-vous</p></div>
+    <div class="carte c"><span class="lab"><svg class="ic"><use href="#i-mobile"/></svg>Canaux</span><p>Outil intégré à l'application du conseiller, courriel et SMS de suivi</p></div>
+    <div class="carte s"><span class="lab"><svg class="ic"><use href="#i-groupe"/></svg>Segments clients</span><p>Conseillers et agents généraux (utilisateurs)</p><p>Particuliers et TPE (clients conseillés)</p></div>
+    <div class="carte co"><span class="lab"><svg class="ic"><use href="#i-pieces"/></svg>Structure de coûts</span><p>Calcul cloud et licences, formation des conseillers, sécurité et conformité</p></div>
+    <div class="carte re"><span class="lab"><svg class="ic"><use href="#i-euro"/></svg>Sources de revenus</span><p>Pas de vente de l'outil : il reste interne. Le revenu vient du conseiller : plus de contrats signés par rendez-vous, plus de produits par client (vente croisée), moins de résiliations, et du temps commercial libéré.</p></div>
+  </div>
+  <p class="pied">Source : travail de l'équipe 2, atelier du 17/11/2026, d'après la méthode du Business Model Canvas</p>
+  <div class="num">4 / 7</div>
+  <div class="notes">Voici notre canevas, avec les neuf briques. Au centre, la proposition de valeur : un rendez-vous préparé en quelques minutes et un conseil mieux ajusté, le conseiller gardant toujours la décision. Les segments : les conseillers et agents généraux, qui utilisent l'outil, et les particuliers et TPE, qui en bénéficient. Les canaux : l'outil est intégré à l'application du conseiller, avec un message de suivi par courriel ou SMS. La relation client reste humaine, mais augmentée. Les activités clés : résumer le dossier, repérer les lacunes de couverture, proposer les bonnes questions, rédiger le compte rendu. Les ressources : les données clients avec consentement, un modèle d'IA sécurisé et une équipe données et conformité. Les partenaires : Microsoft, les éditeurs d'outils, les agents généraux et les autorités comme la CNIL. Côté coûts : le calcul, les licences, la formation et la sécurité. Côté revenus : pas de revenu direct puisque l'outil reste interne, mais plus de contrats signés, plus de produits par client et moins de résiliations.</div>
+</section>
+
+<!-- S5 cas d'usage et risques -->
+<section id="s5">
+  <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA"><img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
+  <h2>Un cas d'usage, deux risques</h2>
+  <div class="s5g">
+    <div class="photo"><img src="assets/img/conseil-b.jpg" alt="Conseillère avec une tablette et un client"><span class="chip">Cas d'usage</span><div class="cap">Le conseiller prépare, le copilote résume, le client est mieux conseillé</div></div>
+    <div class="s5d">
+      <div class="deux">
+        <div class="carte"><span class="lab"><svg class="ic"><use href="#i-dossier"/></svg>Avant le rendez-vous</span><b>Le dossier résumé en une page</b><p>Contrats, sinistres, changements de vie : trois questions à poser, deux couvertures à vérifier.</p></div>
+        <div class="carte"><span class="lab"><svg class="ic"><use href="#i-stylo"/></svg>Après le rendez-vous</span><b>Le compte rendu rédigé</b><p>Le copilote rédige le compte rendu et le message de suivi, le conseiller relit et envoie.</p></div>
+      </div>
+      <div class="deux">
+        <div class="risque"><span class="lab"><svg class="ic"><use href="#i-alerte"/></svg>Risque 1</span><b>Un conseil faux, dit avec assurance</b><p><span class="garde">Garde-fou :</span> le conseiller valide toujours, l'outil cite le dossier et ne propose que la gamme AXA.</p></div>
+        <div class="risque"><span class="lab"><svg class="ic"><use href="#i-cadenas"/></svg>Risque 2</span><b>Des données personnelles exposées</b><p><span class="garde">Garde-fou :</span> plateforme interne sécurisée, données minimales, consentement, traçabilité, aucune décision automatique.</p></div>
+      </div>
+    </div>
+  </div>
+  <p class="pied">Source : travail de l'équipe 2, atelier du 17/11/2026</p>
+  <div class="num">5 / 7</div>
+  <div class="notes">Un cas d'usage concret. Avant un rendez-vous, le copilote résume le dossier du client, propose trois questions à poser et deux couvertures à vérifier. Après, il rédige le compte rendu et le message de suivi, que le conseiller relit. Deux risques. Premier risque : l'IA peut se tromper et le dire avec assurance. Le garde-fou : le conseiller valide toujours, l'outil montre les éléments du dossier sur lesquels il s'appuie et ne propose que la gamme d'AXA. Deuxième risque : les données personnelles et de santé. Le garde-fou : une plateforme interne sécurisée, le minimum de données, le consentement du client, la traçabilité, et aucune décision automatique.</div>
+</section>
+
+<!-- S6 indicateurs et valeur -->
+<section id="s6" class="tc">
+  <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA"><img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
+  <h2>Trois indicateurs, une valeur nouvelle</h2>
+  <div class="s6g">
+    <div class="kp">
+      <div class="k"><svg class="ic g"><use href="#i-horloge"/></svg><b>Temps de préparation</b><span>d'un rendez-vous, avant et après le copilote, en minutes</span></div>
+      <div class="k"><svg class="ic g"><use href="#i-cible"/></svg><b>Taux de transformation</b><span>part des rendez-vous qui débouchent sur un contrat signé</span></div>
+      <div class="k"><svg class="ic g"><use href="#i-sourire"/></svg><b>Satisfaction du client</b><span>et nombre de corrections faites par le conseiller</span></div>
+    </div>
+    <div class="val3">
+      <div class="bloc n"><span class="lab" style="color:#fff"><svg class="ic"><use href="#i-personne"/></svg>Pour le client</span><b>Un conseil qui part de sa situation réelle</b></div>
+      <div class="bloc b"><span class="lab" style="color:#fff"><svg class="ic"><use href="#i-conseiller"/></svg>Pour le conseiller</span><b>Moins d'administratif, plus de temps pour écouter</b></div>
+      <div class="bloc v"><span class="lab" style="color:#fff"><svg class="ic"><use href="#i-immeuble"/></svg>Pour AXA</span><b>Plus de contrats, des clients fidèles, une IA maîtrisée</b></div>
+    </div>
+  </div>
+  <p class="pied">Source : travail de l'équipe 2, atelier du 17/11/2026. Données manquantes pour la rentabilité : gain de temps mesuré en pilote, taux d'adoption, coût par conseiller</p>
+  <div class="num">6 / 7</div>
+  <div class="notes">Trois indicateurs pour mesurer : le temps de préparation d'un rendez-vous, le taux de transformation, c'est-à-dire la part des rendez-vous qui débouchent sur un contrat, et la satisfaction du client, avec le nombre de corrections faites par le conseiller. La valeur nouvelle : pour le client, un conseil qui part de sa situation réelle. Pour le conseiller, moins de préparation administrative et plus de temps pour écouter. Pour AXA, plus de contrats, des clients plus fidèles et une IA maîtrisée. Reste la question de la rentabilité, que vous avez posée sur BlaBlaCar Flex : il nous manque le gain de temps réel mesuré en pilote, le taux d'adoption par les conseillers et le coût par conseiller. C'est pourquoi nous proposons de tester sur une zone restreinte avant d'engager tout le réseau.</div>
+</section>
+
+<section id="s7">
+  <img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
+  <div class="iris"></div>
+  <h2>Merci<small>de votre attention</small></h2>
+  <div class="num">7 / 7</div>
+  <div class="notes">Merci de votre attention. Nous sommes prêts pour vos questions.</div>
+</section>
+
+<div class="toast"></div>
+<script>
+const secs=[...document.querySelectorAll('section')];
+let i=0;
+const CLE_N='notes-atelier-axa-fr';
+let notesPerso={}; try{notesPerso=JSON.parse(localStorage.getItem(CLE_N)||'{}')}catch(e){notesPerso={}}
+const sauverNotes=()=>{try{localStorage.setItem(CLE_N,JSON.stringify(notesPerso))}catch(e){}};
+const notesEls=[...document.querySelectorAll('section .notes')];
+notesEls.forEach(n=>{const id=n.closest('section').id; n._orig=n.innerText.trim(); n.contentEditable='true'; n.spellcheck=true;
+  n.dataset.aide='Clic pour modifier · Échap pour sortir · C pour copier';
+  if(notesPerso[id]!=null){ if(notesPerso[id]===n._orig) delete notesPerso[id]; else n.innerText=notesPerso[id]; }
+  n.addEventListener('input',()=>{const t=n.innerText.trim(); if(t===n._orig) delete notesPerso[id]; else notesPerso[id]=t; sauverNotes();});
+});
+const toast=document.querySelector('.toast');
+function prevenir(t){toast.textContent=t; toast.classList.add('on'); clearTimeout(prevenir._t); prevenir._t=setTimeout(()=>toast.classList.remove('on'),2200);}
+function copier(txt){ if(navigator.clipboard&&navigator.clipboard.writeText) return navigator.clipboard.writeText(txt).catch(()=>{});
+  const a=document.createElement('textarea'); a.value=txt; document.body.appendChild(a); a.select(); try{document.execCommand('copy')}catch(e){} a.remove(); }
+function toutCopier(){
+  const tout={}; notesEls.forEach(n=>{const sec=n.closest('section'), id=sec.id; if(notesPerso[id]!=null) tout['notes|'+id+' (slide '+(secs.indexOf(sec)+1)+')']=notesPerso[id];});
+  copier(JSON.stringify(tout,null,1)); const nb=Object.keys(notesPerso).length; prevenir('Copié : '+(nb?nb+' note(s) modifiée(s)':'aucune note modifiée'));
+}
+const liens=[...document.querySelectorAll('.rail .liens a')];
+const barre=document.querySelector('.rail .bar i');
+function maj(){ secs.forEach((s,k)=>s.classList.toggle('ici',k===i)); liens.forEach((a,k)=>a.classList.toggle('on',k===i)); if(barre) barre.style.height=((i+1)/secs.length*100)+'%'; }
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){i=secs.indexOf(e.target);maj();}})},{threshold:.6});
+secs.forEach(s=>io.observe(s)); maj();
+function aller(n){i=Math.max(0,Math.min(secs.length-1,n));secs[i].scrollIntoView({behavior:'smooth'});}
+addEventListener('keydown',e=>{
+  const k=e.key;
+  if(document.activeElement&&document.activeElement.classList&&document.activeElement.classList.contains('notes')){ if(k==='Escape'){e.preventDefault();document.activeElement.blur();} return; }
+  if((k==='c'||k==='C')&&!e.metaKey&&!e.ctrlKey){toutCopier();return;}
+  if(k==='n'||k==='N'){document.body.classList.toggle('notesvues');return;}
+  if(['ArrowDown','ArrowRight','PageDown',' '].includes(k)){e.preventDefault();aller(i+1);}
+  else if(['ArrowUp','ArrowLeft','PageUp'].includes(k)){e.preventDefault();aller(i-1);}
+  else if(k==='Home'){e.preventDefault();aller(0);}
+  else if(k==='End'){e.preventDefault();aller(secs.length-1);}
+});
+</script>
+</body>
+</html>
