@@ -161,7 +161,24 @@ body.notesvues section.ici .notes{display:block}
 .s5g .duo{display:flex;gap:1.4vw}.s5g .duo .ic{width:5vw;height:5vw;color:var(--bleu);margin:0}
 .cred{position:absolute;left:calc(var(--rail) + 2.6vw);right:10vw;bottom:2.6vh;margin:0;font-size:var(--fs-sm);font-weight:300;color:var(--tenu);text-align:left;z-index:3}
 </style>
-<style>.logos{display:flex;flex-direction:column;gap:1.2vh;margin:.4vh 0 .8vh}.logos img{height:4vh;width:auto;max-width:90%;object-fit:contain;align-self:flex-start}</style></head>
+<style>.logos{display:flex;flex-direction:column;gap:1.2vh;margin:.4vh 0 .8vh}.logos img{height:4vh;width:auto;max-width:90%;object-fit:contain;align-self:flex-start}</style><style>
+.s3g{grid-template-columns:1fr 36%!important}
+.s3g .reco{position:relative;background:#000;border-radius:var(--r);overflow:hidden;display:block;padding:0}
+.s3g .reco>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s3g .reco .tx{position:absolute;left:0;right:0;bottom:0;padding:2.4vh 1.5vw 2.6vh;background:rgba(10,10,10,.34);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);color:#fff;display:flex;flex-direction:column;gap:1.1vh;border-top:1px solid rgba(255,255,255,.28)}
+.s3g .reco .tx .lab{color:#fff}
+.s3g .pr{display:grid;grid-template-columns:2.4vw 1fr;gap:.8vw;align-items:center;font-size:clamp(15px,1.45vw,1.4rem);font-weight:600;line-height:1.2}
+.s3g .pr i{font-style:normal;font-size:var(--fs-chiffre);font-weight:500;color:var(--bleu);line-height:1}
+#s1>.notes{position:fixed;z-index:70}
+#s7{color:#fff;background:#0a0a0a}
+#s7::before{content:"";position:absolute;inset:0;background:url(assets/img/client.jpg) center 35%/cover no-repeat;z-index:0}
+#s7::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(10,10,10,.62),rgba(10,10,10,.8));z-index:1}
+#s7>h2,#s7>.lg-i,#s7>.cred,#s7>.num{position:relative;z-index:2}
+#s7>h2 small{color:rgba(255,255,255,.88)}
+#s7 .lg-i{position:absolute;background:rgba(255,255,255,.92);border-radius:8px;padding:.5vh .8vh;height:4vh}
+#s7 .cred,#s7 .num{position:absolute;color:rgba(255,255,255,.62)}
+</style>
+<style>#s7 .iris{display:none!important}@media (prefers-reduced-motion:no-preference){@keyframes a-fondzoom{from{transform:scale(1.15);opacity:.4}}#s7.ici::before{animation:a-fondzoom 1.8s ease-out backwards}#s7.ici h2{animation:a-pop .9s .3s ease-out backwards}}</style></head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -256,14 +273,18 @@ body.notesvues section.ici .notes{display:block}
   <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA"><img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
   <h2>Mini-SWOT : l'IA chez AXA</h2>
   <div class="s3g">
-    <div class="reco"><div class="photo"><img src="assets/img/equipe.jpg" alt="Équipe au travail avec des ordinateurs"></div>
-      <div class="tx"><span class="lab"><svg class="ic"><use href="#i-fusee"/></svg>Préconisations</span><b>1. Tester d'abord dans une seule région<br>2. S'appuyer sur l'outil d'IA qu'AXA a déjà<br>3. Laisser le conseiller décider</b></div></div>
     <div class="sw">
       <div class="carte f"><span class="lab"><svg class="ic"><use href="#i-bouclier"/></svg>Force</span><b>Un outil d'IA interne et sécurisé, 8 millions de clients</b><p>AXA Secure GPT existe déjà (2023) et le réseau génère beaucoup de données utiles au conseil.</p></div>
       <div class="carte w"><span class="lab"><svg class="ic"><use href="#i-dossier"/></svg>Faiblesse</span><b>Des réseaux très différents, des outils dispersés</b><p>Indépendants et salariés n'ont pas les mêmes usages : un copilote unique est difficile à déployer.</p></div>
       <div class="carte o"><span class="lab"><svg class="ic"><use href="#i-ia"/></svg>Opportunité</span><b>L'IA libère du temps commercial</b><p>Préparer le rendez-vous et rédiger le compte rendu : le conseiller passe plus de temps avec le client.</p></div>
       <div class="carte t"><span class="lab"><svg class="ic"><use href="#i-alerte"/></svg>Menace</span><b>Données sensibles, RGPD et règlement européen sur l'IA</b><p>Une erreur ou une fuite détruirait la confiance, sur laquelle repose l'assurance.</p></div>
     </div>
+    <div class="reco"><img src="assets/img/equipe.jpg" alt="Équipe au travail avec des ordinateurs">
+      <div class="tx"><span class="lab"><svg class="ic"><use href="#i-fusee"/></svg>Préconisations</span>
+        <div class="pr"><i>1</i><span>Tester d'abord dans une seule région</span></div>
+        <div class="pr"><i>2</i><span>S'appuyer sur l'outil d'IA qu'AXA a déjà</span></div>
+        <div class="pr"><i>3</i><span>Laisser le conseiller décider</span></div>
+      </div></div>
   </div>
   <p class="pied">Sources : AXA France, résultats 2025 ; AXA, AXA Secure GPT (juillet 2023), (consultés le 17/11/2026).</p>
   <div class="num">3 / 7</div>
@@ -337,7 +358,7 @@ body.notesvues section.ici .notes{display:block}
   <img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
   <div class="iris"></div>
   <h2>Merci<small>de votre attention</small></h2>
-  <p class="cred">Photos : tour AXA de Winterthur, Manuel Matt, et agence AXA de Bad Zwischenahn, JoachimKohler-HB (CC BY-SA 4.0, Wikimedia Commons) ; équipe, Sarah Pflug, et rendez-vous conseil, Matthew Henry (Burst, Shopify). Logo AXA : Wikimedia Commons.</p>
+  <p class="cred">Photos : tour AXA de Winterthur, Manuel Matt, et agence AXA de Bad Zwischenahn, JoachimKohler-HB (CC BY-SA 4.0, Wikimedia Commons) ; équipe, Sarah Pflug, et rendez-vous conseil, Matthew Henry, et famille, Shopify Photos (Burst). Logo AXA : Wikimedia Commons.</p>
   <div class="num">7 / 7</div>
   <div class="notes">Merci de votre attention. Nous sommes prêts pour vos questions.</div>
 </section>
