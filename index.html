@@ -140,7 +140,7 @@ body.notesvues section.ici .notes{display:block}
   #s1.ici .rideau.d{right:0;animation:a-rd 1.6s cubic-bezier(.77,0,.18,1) forwards}
   #s1.ici h1,#s1.ici .court,#s1.ici .signature{animation:a-couv 1.6s cubic-bezier(.77,0,.18,1) backwards}
   #s1.ici::before{animation:a-couvbg 1.6s cubic-bezier(.77,0,.18,1) backwards}
-  #s2.ici .s2g .photo{animation:a-gauche .9s ease-out backwards}
+  #s2.ici .s2g .s2l{animation:a-gauche .9s ease-out backwards}
   #s2.ici .s2d .tri .bloc{animation:a-droite .9s ease-out backwards}#s2.ici .s2d .tri .bloc:nth-child(2){animation-delay:.12s}#s2.ici .s2d .tri .bloc:nth-child(3){animation-delay:.24s}
   #s2.ici .fil .l{animation:a-monte .8s ease-out backwards}#s2.ici .fil .l:nth-child(2){animation-delay:.15s}#s2.ici .fil .l:nth-child(3){animation-delay:.3s}
   #s3.ici .sw .carte:nth-child(odd){animation:a-gauche .9s ease-out backwards}#s3.ici .sw .carte:nth-child(even){animation:a-droite .9s ease-out backwards}
@@ -178,7 +178,7 @@ body.notesvues section.ici .notes{display:block}
 #s7 .lg-i{position:absolute;background:rgba(255,255,255,.92);border-radius:8px;padding:.5vh .8vh;height:4vh}
 #s7 .cred,#s7 .num{position:absolute;color:rgba(255,255,255,.62)}
 </style>
-<style>#s7::before{background:none!important}#s7::after{background:none!important}#s7{gap:4vh}#s7>h2{font-size:clamp(2.6rem,6.4vw,6rem)}.merci-img{position:relative;z-index:2;width:min(40.9vw,524px);height:auto;border-radius:20px;display:block;box-shadow:0 14px 40px rgba(0,0,0,.45)}#s7 .iris{display:none!important}@media (prefers-reduced-motion:no-preference){@keyframes a-fondzoom{from{transform:scale(1.15);opacity:.4}}#s7.ici::before{animation:a-fondzoom 1.8s ease-out backwards}#s7.ici h2{animation:a-pop .9s .3s ease-out backwards}}</style></head>
+<style>#s7::before{background:none!important}#s7::after{background:none!important}#s7{gap:4vh}#s7>h2{font-size:clamp(2.6rem,6.4vw,6rem)}.merci-img{position:relative;z-index:2;width:min(40.9vw,524px);height:auto;border-radius:20px;display:block;box-shadow:0 14px 40px rgba(0,0,0,.45)}#s7 .iris{display:none!important}@media (prefers-reduced-motion:no-preference){@keyframes a-fondzoom{from{transform:scale(1.15);opacity:.4}}#s7.ici::before{animation:a-fondzoom 1.8s ease-out backwards}#s7.ici h2{animation:a-pop .9s .3s ease-out backwards}}</style><style>.s2g{grid-template-columns:min(30vw,363px) 1fr!important}.s2l{display:grid;grid-template-rows:auto 1fr;gap:2.2vh;min-height:0}.photo.sq{aspect-ratio:1/1;width:100%}.s2l .bloc b{font-size:clamp(1.6rem,2.8vw,2.6rem)}</style></head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -246,7 +246,7 @@ body.notesvues section.ici .notes{display:block}
   <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA"><img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
   <h2>AXA en bref</h2>
   <div class="s2g">
-    <div class="photo"><img src="assets/img/agence.jpg" alt="Agence AXA"><span class="chip">AXA France</span><div class="cap">8 millions de clients en France</div></div>
+    <div class="s2l"><div class="photo sq"><img src="assets/img/axa-dommage.png" alt="Enseigne AXA sur un immeuble"><span class="chip">AXA France</span></div><div class="bloc n"><b>8 millions</b><span>de clients en France</span></div></div>
     <div class="s2d">
       <div class="tri">
         <div class="bloc n"><svg class="ic g"><use href="#i-graph"/></svg><b>115,5 Md€</b><span>de chiffre d'affaires du groupe en 2025</span></div>
@@ -262,7 +262,7 @@ body.notesvues section.ici .notes{display:block}
       </div>
     </div>
   </div>
-  <p class="pied">Sources : AXA, résultats annuels 2025 ; AXA France, communiqué du 02/03/2026 ; ABC Bourse, 26/02/2026, (consultés le 17/11/2026)</p>
+  <p class="pied">Sources : AXA, résultats annuels 2025 ; AXA France, communiqué du 02/03/2026 ; ABC Bourse, 26/02/2026, (consultés le 17/11/2026) ; image : 212assurances.com</p>
   <div class="num">2 / 7</div>
   <div class="notes">AXA en quelques chiffres, rapidement, parce que le groupe 1 l'a déjà fait. En 2025, le groupe a réalisé 115,5 milliards d'euros de chiffre d'affaires et un résultat net de 9,8 milliards. En France, AXA France pèse 31 milliards et couvre 8 millions de clients. L'important, comme vous l'avez dit, c'est qu'AXA n'est pas une entreprise simple : il y a plusieurs réseaux. Des indépendants, les agents généraux. Des salariés, les conseillers commerciaux, et c'est notre sujet. Et une filiale en ligne, Direct Assurance, avec plus de 2 millions de contrats. Notre problématique : comment aider ces commerciaux avant et après chaque rendez-vous.</div>
 
