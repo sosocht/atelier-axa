@@ -161,7 +161,7 @@ body.notesvues section.ici .notes{display:block}
 .s5g .duo{display:flex;gap:1.4vw}.s5g .duo .ic{width:5vw;height:5vw;color:var(--bleu);margin:0}
 .cred{position:absolute;left:calc(var(--rail) + 2.6vw);right:10vw;bottom:2.6vh;margin:0;font-size:var(--fs-sm);font-weight:300;color:var(--tenu);text-align:left;z-index:3}
 </style>
-</head>
+<style>.logos{display:flex;flex-direction:column;gap:1.2vh;margin:.4vh 0 .8vh}.logos img{height:4vh;width:auto;max-width:90%;object-fit:contain;align-self:flex-start}</style></head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -257,17 +257,17 @@ body.notesvues section.ici .notes{display:block}
   <h2>Mini-SWOT : l'IA chez AXA</h2>
   <div class="s3g">
     <div class="reco"><div class="photo"><img src="assets/img/equipe.jpg" alt="Équipe au travail avec des ordinateurs"></div>
-      <div class="tx"><span class="lab"><svg class="ic"><use href="#i-fusee"/></svg>Préconisations</span><b>1. Un pilote dans une région<br>2. Bâti sur AXA Secure GPT<br>3. Le conseiller décide toujours</b></div></div>
+      <div class="tx"><span class="lab"><svg class="ic"><use href="#i-fusee"/></svg>Préconisations</span><b>1. Tester d'abord dans une seule région<br>2. S'appuyer sur l'outil d'IA qu'AXA a déjà<br>3. Laisser le conseiller décider</b></div></div>
     <div class="sw">
       <div class="carte f"><span class="lab"><svg class="ic"><use href="#i-bouclier"/></svg>Force</span><b>Un outil d'IA interne et sécurisé, 8 millions de clients</b><p>AXA Secure GPT existe déjà (2023) et le réseau génère beaucoup de données utiles au conseil.</p></div>
-      <div class="carte w"><span class="lab"><svg class="ic"><use href="#i-dossier"/></svg>Faiblesse</span><b>Des réseaux très différents, des outils dispersés</b><p>Indépendants et salariés n'ont pas les mêmes usages : un copilote unique est difficile à déployer (hypothèse de l'équipe).</p></div>
+      <div class="carte w"><span class="lab"><svg class="ic"><use href="#i-dossier"/></svg>Faiblesse</span><b>Des réseaux très différents, des outils dispersés</b><p>Indépendants et salariés n'ont pas les mêmes usages : un copilote unique est difficile à déployer.</p></div>
       <div class="carte o"><span class="lab"><svg class="ic"><use href="#i-ia"/></svg>Opportunité</span><b>L'IA libère du temps commercial</b><p>Préparer le rendez-vous et rédiger le compte rendu : le conseiller passe plus de temps avec le client.</p></div>
       <div class="carte t"><span class="lab"><svg class="ic"><use href="#i-alerte"/></svg>Menace</span><b>Données sensibles, RGPD et règlement européen sur l'IA</b><p>Une erreur ou une fuite détruirait la confiance, sur laquelle repose l'assurance.</p></div>
     </div>
   </div>
-  <p class="pied">Sources : AXA France, résultats 2025 ; AXA, AXA Secure GPT (juillet 2023), (consultés le 17/11/2026). Faiblesse : hypothèse de l'équipe.</p>
+  <p class="pied">Sources : AXA France, résultats 2025 ; AXA, AXA Secure GPT (juillet 2023), (consultés le 17/11/2026).</p>
   <div class="num">3 / 7</div>
-  <div class="notes">Notre mini-SWOT. La force : un réseau étendu et 8 millions de clients en France. La faiblesse, qui est une hypothèse de notre équipe : un conseiller perd du temps à retrouver le dossier du client dans plusieurs outils avant chaque rendez-vous. L'opportunité : l'IA générative est aujourd'hui mûre, et AXA a déjà sa propre plateforme sécurisée, AXA Secure GPT, lancée en 2023 sur la technologie d'OpenAI hébergée chez Microsoft. La menace : les données de santé et de patrimoine sont très sensibles, avec le RGPD en toile de fond. Comme vous l'avez rappelé, un SWOT sert à préconiser : nos préconisations : un, lancer le copilote en pilote dans une seule région avant de le généraliser, exactement comme pour BlaBlaCar Flex ; deux, le bâtir sur l'outil interne qu'AXA a déjà, AXA Secure GPT ; trois, laisser toujours la décision au conseiller.</div>
+  <div class="notes">Notre mini-SWOT. La force : un réseau étendu et 8 millions de clients en France. La faiblesse : un conseiller perd du temps à retrouver le dossier du client dans plusieurs outils avant chaque rendez-vous. L'opportunité : l'IA générative est aujourd'hui mûre, et AXA a déjà sa propre plateforme sécurisée, AXA Secure GPT, lancée en 2023 sur la technologie d'OpenAI hébergée chez Microsoft. La menace : les données de santé et de patrimoine sont très sensibles, avec le RGPD en toile de fond. Comme vous l'avez rappelé, un SWOT sert à préconiser : nos préconisations. Un, tester d'abord le copilote dans une seule région, avec quelques conseillers, pour mesurer ce qu'il apporte avant de l'étendre à tout le réseau : c'est ce qu'on appelle un pilote, comme l'exemple vu en cours. Deux, s'appuyer sur l'outil d'IA qu'AXA a déjà, AXA Secure GPT, plutôt que d'en construire un nouveau. Trois, laisser toujours la décision au conseiller.</div>
 </section>
 
 <!-- S4 canevas -->
@@ -275,10 +275,10 @@ body.notesvues section.ici .notes{display:block}
   <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA"><img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
   <h2>Canevas : AXA Copilote Conseil</h2>
   <div class="cv">
-    <div class="carte p"><span class="lab"><svg class="ic"><use href="#i-main"/></svg>Partenaires clés</span><p>Microsoft (Azure OpenAI)</p><p>Éditeurs d'outils de relation client</p><p>Agents généraux et courtiers</p><p>CNIL et ACPR (conformité)</p></div>
+    <div class="carte p"><span class="lab"><svg class="ic"><use href="#i-main"/></svg>Partenaires clés</span><div class="logos"><img src="assets/img/logo-microsoft.svg" alt="Microsoft"><img src="assets/img/logo-azure.svg" alt="Azure OpenAI"><img src="assets/img/logo-cnil.svg" alt="CNIL"></div><p>Éditeurs d'outils de relation client</p><p>Agents généraux et courtiers</p><p>ACPR (conformité)</p></div>
     <div class="carte a"><span class="lab"><svg class="ic"><use href="#i-engrenage"/></svg>Activités clés</span><p>Résumer le dossier client, repérer les lacunes de couverture, proposer les bonnes questions, rédiger le compte rendu</p></div>
     <div class="carte r"><span class="lab"><svg class="ic"><use href="#i-base"/></svg>Ressources clés</span><p>Données clients avec consentement, modèle d'IA sécurisé, équipe données et conformité</p></div>
-    <div class="carte v"><span class="lab"><svg class="ic"><use href="#i-etoile"/></svg>Proposition de valeur</span><p>Un rendez-vous préparé en quelques minutes et un conseil mieux ajusté aux besoins réels du client.</p><p>Le conseiller garde la décision.</p><div class="gros"><svg class="ic"><use href="#i-etoile"/></svg></div></div>
+    <div class="carte v"><span class="lab"><svg class="ic"><use href="#i-etoile"/></svg>Proposition de valeur</span><p>Un rendez-vous préparé en quelques minutes et un conseil mieux ajusté aux besoins réels du client.</p><p>Le conseiller garde la décision.</p></div>
     <div class="carte rc"><span class="lab"><svg class="ic"><use href="#i-coeur"/></svg>Relation client</span><p>Conseil humain augmenté, suivi automatique après le rendez-vous</p></div>
     <div class="carte c"><span class="lab"><svg class="ic"><use href="#i-mobile"/></svg>Canaux</span><p>Outil intégré à l'application du conseiller, courriel et SMS de suivi</p></div>
     <div class="carte s"><span class="lab"><svg class="ic"><use href="#i-groupe"/></svg>Segments clients</span><p>Conseillers et agents généraux (utilisateurs)</p><p>Particuliers et TPE (clients conseillés)</p></div>
@@ -295,7 +295,7 @@ body.notesvues section.ici .notes{display:block}
   <img class="lg-s" src="assets/img/logo-axa.svg" alt="AXA"><img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
   <h2>Un cas d'usage, deux risques</h2>
   <div class="s5g">
-    <div class="photo"><img src="assets/img/conseil-b.jpg" alt="Conseillère avec une tablette et un client"><span class="chip">Cas d'usage</span><div class="cap">Le conseiller prépare, le copilote résume, le client est mieux conseillé</div></div>
+    <div class="photo"><img src="assets/img/conseil.jpg" alt="Conseillère en rendez-vous avec un client"><span class="chip">Cas d'usage</span><div class="cap">Le conseiller prépare, le copilote résume, le client est mieux conseillé</div></div>
     <div class="s5d">
       <div class="deux">
         <div class="carte"><span class="lab"><svg class="ic"><use href="#i-dossier"/></svg>Avant le rendez-vous</span><b>Le dossier résumé en une page</b><p>Contrats, sinistres, changements de vie : trois questions à poser, deux couvertures à vérifier.</p></div>
@@ -328,16 +328,16 @@ body.notesvues section.ici .notes{display:block}
       <div class="bloc v"><span class="lab" style="color:#fff"><svg class="ic"><use href="#i-immeuble"/></svg>Pour AXA</span><b>Plus de contrats, des clients fidèles, une IA maîtrisée</b></div>
     </div>
   </div>
-  <p class="pied">Source : travail de l'équipe 2, atelier du 17/11/2026. Données manquantes pour la rentabilité : gain de temps mesuré en pilote, taux d'adoption, coût par conseiller</p>
+  <p class="pied">Source : travail de l'équipe 2, atelier du 17/11/2026. Données manquantes pour la rentabilité : gain de temps mesuré pendant le test, taux d'adoption, coût par conseiller</p>
   <div class="num">6 / 7</div>
-  <div class="notes">Trois indicateurs pour mesurer : le temps de préparation d'un rendez-vous, le taux de transformation, c'est-à-dire la part des rendez-vous qui débouchent sur un contrat, et la satisfaction du client, avec le nombre de corrections faites par le conseiller. La valeur nouvelle : pour le client, un conseil qui part de sa situation réelle. Pour le conseiller, moins de préparation administrative et plus de temps pour écouter. Pour AXA, plus de contrats, des clients plus fidèles et une IA maîtrisée. Reste la question de la rentabilité, que vous avez posée sur BlaBlaCar Flex : il nous manque le gain de temps réel mesuré en pilote, le taux d'adoption par les conseillers et le coût par conseiller. C'est pourquoi nous proposons de tester sur une zone restreinte avant d'engager tout le réseau.</div>
+  <div class="notes">Trois indicateurs pour mesurer : le temps de préparation d'un rendez-vous, le taux de transformation, c'est-à-dire la part des rendez-vous qui débouchent sur un contrat, et la satisfaction du client, avec le nombre de corrections faites par le conseiller. La valeur nouvelle : pour le client, un conseil qui part de sa situation réelle. Pour le conseiller, moins de préparation administrative et plus de temps pour écouter. Pour AXA, plus de contrats, des clients plus fidèles et une IA maîtrisée. Reste la question de la rentabilité, que vous avez posée sur l'exemple vu en cours : il nous manque le gain de temps réel mesuré pendant le test dans une région, le taux d'adoption par les conseillers et le coût par conseiller. C'est pourquoi nous proposons de tester dans une seule région avant d'engager tout le réseau.</div>
 </section>
 
 <section id="s7">
   <img class="lg-i" src="assets/logo-iut.png" alt="IUT de Lille, Roubaix">
   <div class="iris"></div>
   <h2>Merci<small>de votre attention</small></h2>
-  <p class="cred">Photos : tour AXA de Winterthur, Manuel Matt, et agence AXA de Bad Zwischenahn, JoachimKohler-HB (CC BY-SA 4.0, Wikimedia Commons) ; équipe, Sarah Pflug, et conseil, Shopify Photos (Burst). Logo AXA : Wikimedia Commons.</p>
+  <p class="cred">Photos : tour AXA de Winterthur, Manuel Matt, et agence AXA de Bad Zwischenahn, JoachimKohler-HB (CC BY-SA 4.0, Wikimedia Commons) ; équipe, Sarah Pflug, et rendez-vous conseil, Matthew Henry (Burst, Shopify). Logo AXA : Wikimedia Commons.</p>
   <div class="num">7 / 7</div>
   <div class="notes">Merci de votre attention. Nous sommes prêts pour vos questions.</div>
 </section>
